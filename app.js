@@ -8,6 +8,11 @@ const app = express()
 dotenv.config({ path: './config/config.env' })
 connectDB()
 
+//Import Routes
+const postsRoute = require('./routes/posts')
+
+app.use('/posts', postsRoute)
+
 // Connect to database
 mongoose.connect(process.env.MONGO_URI)
 
